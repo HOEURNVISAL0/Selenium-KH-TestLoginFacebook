@@ -1,47 +1,69 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using WebDriverManager;
-using WebDriverManager.DriverConfigs.Impl;
 using NUnit.Framework;
 
-namespace Selenium_UI__Web
+namespace Selenium_UI_Web
 {
     [TestFixture]
-    public class LoginTest
+    public class DogApiTest
     {
         private IWebDriver driver;
 
         [SetUp]
         public void Setup()
         {
-            // Auto download the right ChromeDriver version
-            new DriverManager().SetUpDriver(new ChromeConfig());
-
             driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
-            driver.Navigate().GoToUrl("https://www.facebook.com/");
+            driver.Navigate().GoToUrl("https://dogapi.dog/");
         }
 
+        // This test now includes a proper assertion.
         [Test]
-        public void TestSuccessfulLogin()
+        public void ClickDemoLink()
         {
-            var usernameField = driver.FindElement(By.Id("email"));
-            var passwordField = driver.FindElement(By.Id("pass"));
-            var loginButton = driver.FindElement(By.Name("login"));
+            var demoLink = driver.FindElement(By.LinkText("Demo"));
+            demoLink.Click();
+            Thread.Sleep(1000); // slow down for visibility
 
-            // ⚠️ Replace with your own test account
-            usernameField.SendKeys("ithuce1@gmail.com");
-            passwordField.SendKeys("Sacombank123?");
-            loginButton.Click();
+            Assert.AreEqual("https://dogapi.dog/demo", driver.Url);
+            var breedInput = driver.FindElement(By.Id("breedId"));
+            breedInput.SendKeys("f72528b5-a5d7-4a17-b709-aba2db722307");
+            Thread.Sleep(1000); // slow down for visibility
 
-            // Simple validation: after login, Facebook redirects to home
-            Assert.IsTrue(driver.Url.Contains("facebook.com"));
+            var getBreedButton = driver.FindElement(By.XPath("/html/body/main/div/div[2]/button"));
+            getBreedButton.Click();
+            Thread.Sleep(1000); // slow down for visibility
+
+            var getclickURL = driver.FindElement(By.XPath("/html/body/main/div/div[2]/div/a"));
+            getclickURL.Click();
+            Thread.Sleep(1000); // slow down for visibility
+
         }
+        [Test]
+        public void ClickDemoLinkerror()
+        {
+            var demoLink = driver.FindElement(By.LinkText("Demo"));
+            demoLink.Click();
+
+            System.Threading.Thread.Sleep(2000);
+            Assert.AreEqual("https://dogapi.dog/demo", driver.Url);
+            var breedInput = driver.FindElement(By.Id("breedId"));
+            breedInput.SendKeys("haha");
+
+            var getBreedButton = driver.FindElement(By.XPath("/html/body/main/div/div[2]/button"));
+            getBreedButton.Click();
+
+            var getclickURL = driver.FindElement(By.XPath("/html/body/main/div/div[2]/div/a"));
+            getclickURL.Click();
+
+        }
+
 
         //[TearDown]
         //public void Teardown()
         //{
-        //    driver?.Quit(); // Cleanup after test
+        //    // The driver should be closed after each test run.
+        //    driver?.Quit();
         //}
     }
 }

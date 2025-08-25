@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Selenium UI  Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f407b13033d17124d6cf5a69b8969098efc7f91c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Selenium UI  Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Selenium UI  Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

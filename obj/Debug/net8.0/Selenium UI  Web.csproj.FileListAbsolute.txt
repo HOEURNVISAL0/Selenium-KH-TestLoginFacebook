@@ -105,3 +105,4 @@ C:\Users\Admin\Desktop\Selenium UI  Web\Selenium UI  Web\obj\Debug\net8.0\ref\Se
 C:\Users\Admin\Desktop\Selenium UI  Web\Selenium UI  Web\bin\Debug\net8.0\AngleSharp.dll
 C:\Users\Admin\Desktop\Selenium UI  Web\Selenium UI  Web\bin\Debug\net8.0\ICSharpCode.SharpZipLib.dll
 C:\Users\Admin\Desktop\Selenium UI  Web\Selenium UI  Web\bin\Debug\net8.0\WebDriverManager.dll
+C:\Users\Admin\Desktop\Selenium UI  Web\Selenium UI  Web\obj\Debug\net8.0\Selenium UI  Web.sourcelink.json
